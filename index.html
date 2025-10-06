@@ -320,23 +320,84 @@
           <p class="fine"><a href="https://maps.google.com/?q=Edmond,OK" target="_blank" rel="noreferrer">Open in Maps</a></p>
         </div>
       </div>
-      <form class="card" aria-label="Quick message" onsubmit="event.preventDefault(); alert('Thanks, I\'ll respond shortly.');">
-        <h3>Quick message</h3>
-        <div class="field">
-          <label for="name">Name</label>
-          <input class="input" id="name" name="name" autocomplete="name" required />
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input class="input" id="email" name="email" type="email" autocomplete="email" required />
-        </div>
-        <div class="field">
-          <label for="msg">How can I help?</label>
-          <textarea class="input" id="msg" name="message" rows="4" required></textarea>
-        </div>
-        <button class="btn" type="submit">Send</button>
-        <p class="fine" style="margin-top:8px">Submitting will open a quick confirmation in your browser. Replace with your form handler later.</p>
-      </form>
+<!-- Contact -->
+<section id="contact" class="contact">
+  <div class="container contact-grid">
+    <div>
+      <h2>Contact</h2>
+      <p class="lead">Fast response during business hours.</p>
+      <div class="grid grid-2">
+        <a class="btn" href="tel:+14053239095" aria-label="Call Tristan">Call (405) 323-9095</a>
+        <a class="btn" href="mailto:tristanlake15@gmail.com" aria-label="Email Tristan">Email</a>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <h3 style="margin:0 0 6px">Service area</h3>
+        <p class="fine">Edmond, OK • OKC metro</p>
+        <p class="fine"><a href="https://maps.google.com/?q=Edmond,OK" target="_blank" rel="noreferrer">Open in Maps</a></p>
+      </div>
+    </div>
+
+    <!-- FormSubmit-powered form -->
+    <form class="card" aria-label="Quick message"
+          action="https://formsubmit.co/tristanlake15@gmail.com"
+          method="POST">
+      <h3>Quick message</h3>
+
+      <!-- required visible fields -->
+      <div class="field">
+        <label for="name">Name</label>
+        <input class="input" id="name" name="name" autocomplete="name" required />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="msg">How can I help?</label>
+        <textarea class="input" id="msg" name="message" rows="4" required></textarea>
+      </div>
+
+      <!-- optional fields -->
+      <div class="field">
+        <label for="phone">Phone (optional)</label>
+        <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" />
+      </div>
+
+      <!-- FormSubmit controls -->
+      <input type="hidden" name="_subject" value="New request from DataLake TechSupport" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="true" />
+      <input type="hidden" id="next-url" name="_next" value="" />
+      <!-- spam honeypot -->
+      <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" />
+
+      <button class="btn" type="submit">Send</button>
+      <p class="fine" style="margin-top:8px">Submits securely to FormSubmit and emails <strong>tristanlake15@gmail.com</strong>.</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Redirect back to this page after submit with a flag
+  const here = new URL(window.location.href);
+  here.searchParams.set('sent','1');
+  const next = document.getElementById('next-url');
+  if (next) next.value = here.toString();
+
+  // Lightweight success notice
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') === '1') {
+    const note = document.createElement('div');
+    note.textContent = 'Thanks. Your message was sent.';
+    note.setAttribute('role','status');
+    note.style.cssText = 'position:fixed;inset:auto 16px 16px;z-index:60;background:#10b98120;border:1px solid #10b98155;color:#e5e7eb;padding:12px 14px;border-radius:12px;backdrop-filter:saturate(1.4) blur(6px)';
+    document.body.appendChild(note);
+    setTimeout(()=>note.remove(), 5000);
+  }
+</script>
     </div>
   </section>
 
@@ -353,4 +414,5 @@
   </script>
 </body>
 </html>
+
 
