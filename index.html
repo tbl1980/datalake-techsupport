@@ -2,44 +2,354 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Reliable IT Support in Edmond, OK for homes and businesses. Tristan Lake offers tech repair, network setup, and friendly teaching." />
-  <meta name="keywords" content="IT support, tech repair, network setup, computer help, Edmond OK, DataLake TechSupport" />
-  <title>DataLake TechSupport</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataLake TechSupport | Edmond, OK IT Support</title>
+  <meta name="description" content="Friendly, reliable IT support in Edmond, OK. Repairs, networking, consulting, and tutoring for homes and small businesses." />
+  <meta name="keywords" content="IT support, tech repair, network setup, computer help, Edmond OK, DataLake TechSupport, Tristan Lake" />
+  <meta property="og:title" content="DataLake TechSupport" />
+  <meta property="og:description" content="Repairs, networking, consulting, and tutoring in Edmond, OK." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://datalaketechsupport.example" />
+  <meta name="theme-color" content="#0f172a" />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0b1020;          /* slate-950 */
+      --surface:#0f172a;      /* slate-900 */
+      --card:#111827;         /* slate-900/950 mix */
+      --text:#e5e7eb;         /* slate-200 */
+      --muted:#9ca3af;        /* slate-400 */
+      --brand:#38bdf8;        /* sky-400 */
+      --brand-2:#22d3ee;      /* cyan-400 */
+      --accent:#a78bfa;       /* violet-400 */
+      --ok:#34d399;           /* emerald-400 */
+      --ring: 0 0 0 8px rgb(56 189 248 / 0.20);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f8fafc;         /* slate-50 */
+        --surface:#ffffff;     /* white */
+        --card:#f1f5f9;        /* slate-100 */
+        --text:#0f172a;        /* slate-900 */
+        --muted:#475569;       /* slate-600 */
+        --brand:#0284c7;       /* sky-700 */
+        --brand-2:#0891b2;     /* cyan-700 */
+        --accent:#6d28d9;      /* violet-700 */
+        --ok:#059669;          /* emerald-600 */
+      }
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background:linear-gradient(180deg, var(--bg), var(--surface) 100%);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin-inline:auto; padding:0 20px}
+
+    /* Nav */
+    header.nav{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.4) blur(8px);
+      background:color-mix(in oklab, var(--surface) 70%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent);
+    }
+    .nav-inner{display:flex; align-items:center; gap:16px; padding:12px 0}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:0.2px}
+    .logo-mark{width:28px; height:28px; border-radius:8px; background:conic-gradient(from 210deg, var(--brand), var(--accent), var(--brand-2)); box-shadow:0 8px 28px rgba(0,0,0,.25); position:relative}
+    .logo-wave{position:absolute; inset:0; mask:radial-gradient(60% 60% at 50% 50%, #000 55%, transparent 56%); background:radial-gradient(40% 40% at 50% 20%, #fff8, #0000)}
+    nav{margin-left:auto; display:flex; gap:16px; align-items:center}
+    nav a{padding:8px 12px; border-radius:10px; color:var(--muted)}
+    nav a:hover{background:color-mix(in oklab, var(--text) 8%, transparent); color:var(--text)}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:12px; font-weight:600; background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#001018}
+    .btn:hover{filter:brightness(1.05)}
+
+    /* Hero */
+    .hero{position:relative; overflow:hidden}
+    .hero::before{
+      content:""; position:absolute; inset:-20% -10% auto -10%; height:80vh; z-index:-1;
+      background:
+        radial-gradient(60% 40% at 10% 10%, color-mix(in oklab, var(--brand) 22%, transparent) 0 60%, transparent 61%),
+        radial-gradient(40% 30% at 90% 20%, color-mix(in oklab, var(--accent) 22%, transparent) 0 60%, transparent 61%),
+        radial-gradient(30% 30% at 50% 70%, color-mix(in oklab, var(--brand-2) 22%, transparent) 0 60%, transparent 61%);
+      filter: blur(40px) saturate(1.4);
+    }
+    .hero .wrap{padding:72px 0 56px; display:grid; grid-template-columns:1.15fr 0.85fr; gap:28px}
+    @media (max-width: 900px){.hero .wrap{grid-template-columns:1fr; padding:64px 0 40px}}
+    h1{font-size:clamp(2rem, 3.5vw, 3.25rem); line-height:1.05; margin:0 0 14px}
+    .sub{color:var(--muted); font-size:1.1rem; margin-bottom:22px}
+    .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+    .ghost{border:1px solid color-mix(in oklab, var(--text) 18%, transparent); background:transparent; color:var(--text)}
+
+    .statbar{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:28px}
+    .stat{background:color-mix(in oklab, var(--text) 6%, transparent); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius:14px; padding:14px}
+    .stat strong{display:block; font-size:1.3rem}
+    .stat span{color:var(--muted); font-size:.9rem}
+
+    .hero-card{
+      align-self:center; background:linear-gradient(180deg, color-mix(in oklab, var(--text) 4%, transparent), color-mix(in oklab, var(--text) 0%, transparent));
+      border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius:16px; padding:16px
+    }
+    .card-row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .chip{display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); padding:12px; border-radius:12px}
+    .chip svg{flex:0 0 22px}
+
+    /* Sections */
+    section{padding:64px 0}
+    h2{font-size:clamp(1.5rem, 2.6vw, 2.2rem); margin:0 0 18px}
+    .lead{color:var(--muted); margin:0 0 22px}
+
+    .grid{display:grid; gap:16px}
+    .grid-3{grid-template-columns:repeat(3, 1fr)}
+    .grid-2{grid-template-columns:repeat(2, 1fr)}
+    @media (max-width: 900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    .card{background:var(--card); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius:16px; padding:20px}
+    .card h3{margin:0 0 6px; font-size:1.05rem}
+    .card p{margin:0; color:var(--muted)}
+
+    .list{display:grid; gap:8px; margin:12px 0 0; padding:0; list-style:none}
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .dot{width:8px; height:8px; border-radius:999px; background:linear-gradient(90deg, var(--brand), var(--brand-2)); margin-top:8px}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
+    @media (max-width: 900px){.pricing{grid-template-columns:1fr}}
+    .price-card{position:relative}
+    .price-card .badge{position:absolute; top:12px; right:12px; font-size:.8rem; padding:4px 10px; border-radius:999px; background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#001018; font-weight:700}
+    .price{font-size:2rem; font-weight:800; margin:6px 0}
+    .fine{color:var(--muted); font-size:.92rem}
+
+    /* About */
+    .about-wrap{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    @media (max-width: 900px){.about-wrap{grid-template-columns:1fr}}
+    .avatar{inline-size:100%; aspect-ratio:1/1; border-radius:18px; background:
+      radial-gradient(100% 80% at 50% 0%, color-mix(in oklab, var(--brand) 14%, transparent) 0 60%, transparent 61%),
+      linear-gradient(180deg, color-mix(in oklab, var(--text) 5%, transparent), transparent 50%),
+      url('https://placehold.co/600x600/png') center/cover no-repeat;
+      border:1px solid color-mix(in oklab, var(--text) 10%, transparent);
+    }
+
+    /* Contact */
+    .contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
+    @media (max-width: 900px){.contact-grid{grid-template-columns:1fr}}
+    .contact .btn{width:100%; justify-content:center}
+    .field{display:flex; flex-direction:column; gap:6px}
+    .input{background:var(--surface); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); color:var(--text); padding:12px 14px; border-radius:12px}
+    .input:focus{outline:none; box-shadow:var(--ring);}
+
+    /* Footer */
+    footer{padding:32px 0; color:var(--muted); border-top:1px solid color-mix(in oklab, var(--text) 10%, transparent)}
+
+    /* Utility */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DataLake TechSupport",
+    "url": "https://datalaketechsupport.example",
+    "image": "https://datalaketechsupport.example/brand-card.png",
+    "telephone": "+1-405-323-9095",
+    "email": "tristanlake15@gmail.com",
+    "address": {"@type": "PostalAddress", "addressLocality": "Edmond", "addressRegion": "OK", "addressCountry": "US"},
+    "areaServed": "Oklahoma City metro",
+    "description": "IT support, repairs, networking, consulting, and tutoring for homes and small businesses.",
+    "servesCuisine": null
+  }
+  </script>
 </head>
 <body>
-  <header class="hero">
-    <h1>DataLake TechSupport</h1>
-    <p>Reliable IT Support for Modern Businesses and Everyday People</p>
-    <a href="#contact" class="cta-button">Contact Me</a>
+  <!-- Nav -->
+  <header class="nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="logo" href="#top" aria-label="Home">
+        <span class="logo-mark"><span class="logo-wave"></span></span>
+        <span>DataLake TechSupport</span>
+      </a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn" aria-label="Contact Tristan">Get Help</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="services">
-    <h2>Services Offered</h2>
-    <ul>
-      <li><strong>Network Setup:</strong> Switches, Routers, Firewalls, Cabling</li>
-      <li><strong>Tech Repair:</strong> Laptops, Desktops, VoIP Phones, Printers, Drones</li>
-      <li><strong>IT Consulting:</strong> For local businesses and personal use</li>
-      <li><strong>Tech Tutoring:</strong> Friendly, simple lessons for all ages</li>
-    </ul>
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <section class="container wrap">
+      <div>
+        <h1>Reliable IT Support for homes and small businesses</h1>
+        <p class="sub">Repairs, networking, consulting, and tutoring. Fast responses. Clear explanations. Serving Edmond and OKC metro.</p>
+        <div class="hero-cta">
+          <a class="btn" href="tel:+14053239095" aria-label="Call Tristan">Call now</a>
+          <a class="btn ghost" href="#contact">Request help</a>
+        </div>
+        <div class="statbar" role="list" aria-label="Quick facts">
+          <div class="stat" role="listitem"><strong>5+ yrs</strong><span>Hands-on IT</span></div>
+          <div class="stat" role="listitem"><strong>Ubiquiti</strong><span>Networks & VLANs</span></div>
+          <div class="stat" role="listitem"><strong>Same‑day</strong><span>Remote support</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Highlights">
+        <div class="card-row">
+          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg><div><strong>Plain‑English help</strong><div class="fine">No jargon. You keep the notes.</div></div></div>
+          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h3v-6H6v-2a6 6 0 0 1 12 0v2h-3v6h3a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9Z"/></svg><div><strong>On‑site or remote</strong><div class="fine">Flexible scheduling</div></div></div>
+          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg><div><strong>Documented fixes</strong><div class="fine">You get a step list</div></div></div>
+          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5Zm0 11.99h7c-.48 4.09-3.19 7.88-7 9.13V13H5V6.3l7-3.11Z"/></svg><div><strong>Safe & secure</strong><div class="fine">Backups and hardening</div></div></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2>Services</h2>
+      <p class="lead">Pick what you need. Mix and match. Clear pricing below.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Network Setup</h3>
+          <p>Routers, switches, VLANs, Wi‑Fi heat‑mapping, cabling.</p>
+          <ul class="list">
+            <li><span class="dot"></span>Ubiquiti UniFi design and install</li>
+            <li><span class="dot"></span>Firewall rules and VPN</li>
+            <li><span class="dot"></span>ISP and modem optimization</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Repairs</h3>
+          <p>Laptops, desktops, VoIP phones, printers, and drones.</p>
+          <ul class="list">
+            <li><span class="dot"></span>Windows tune‑ups and malware cleanup</li>
+            <li><span class="dot"></span>Printer jams and drivers</li>
+            <li><span class="dot"></span>Data recovery best‑effort</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Consulting</h3>
+          <p>Pro plans for small teams. Policies, backups, and training.</p>
+          <ul class="list">
+            <li><span class="dot"></span>Device lifecycle and purchasing</li>
+            <li><span class="dot"></span>Backup and disaster recovery</li>
+            <li><span class="dot"></span>Security hardening checklist</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm <strong>Tristan Lake</strong>. I’ve been working in IT for 5 years and love helping people get comfortable with tech — whether it's fixing a printer or setting up a full business network. We live in a time where technology is overwhelming, and I want to help people adjust, learn, and stay confident. I'm 24 and still learning every day myself — currently studying Drone repair and Ubiquiti networking. My goal is to be a helpful, reliable tech support resource — and a friend.</p>
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <p class="lead">No surprises. Flat rates for common work. Custom quotes for projects.</p>
+      <div class="pricing">
+        <div class="card price-card">
+          <div class="badge" aria-label="Most popular">Popular</div>
+          <h3>On‑Site Visit</h3>
+          <div class="price">$95/hr</div>
+          <p class="fine">1‑hour minimum • Edmond/OKC metro</p>
+          <ul class="list">
+            <li><span class="dot"></span>Diagnostics and fixes</li>
+            <li><span class="dot"></span>Small network jobs</li>
+            <li><span class="dot"></span>Training included</li>
+          </ul>
+        </div>
+        <div class="card price-card">
+          <h3>Remote Session</h3>
+          <div class="price">$65/hr</div>
+          <p class="fine">15‑min billing after first 30 minutes</p>
+          <ul class="list">
+            <li><span class="dot"></span>Quick repairs and updates</li>
+            <li><span class="dot"></span>New PC setup</li>
+            <li><span class="dot"></span>Printer and software help</li>
+          </ul>
+        </div>
+        <div class="card price-card">
+          <h3>Small Biz Plan</h3>
+          <div class="price">$250/mo</div>
+          <p class="fine">Up to 5 devices • Cancel anytime</p>
+          <ul class="list">
+            <li><span class="dot"></span>Monitoring and patching</li>
+            <li><span class="dot"></span>Priority support</li>
+            <li><span class="dot"></span>Quarterly review</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <p><strong>Phone:</strong> <a href="tel:+14053239095">(405) 323-9095</a></p>
-    <p><strong>Email:</strong> <a href="mailto:tristanlake15@gmail.com">tristanlake15@gmail.com</a></p>
-    <p><strong>Location:</strong> Edmond, OK</p>
+  <!-- About -->
+  <section id="about">
+    <div class="container about-wrap">
+      <div>
+        <h2>About Tristan</h2>
+        <p class="lead">Five years in the field. Clear communication. Practical fixes.</p>
+        <p>Hi, I’m <strong>Tristan Lake</strong>. I help people feel confident with technology—
+          from a stubborn printer to a full small‑office network. I work with
+          UniFi, Windows, and common business tools. I’m always learning—currently
+          deepening drone repair and advanced networking.</p>
+        <p>Goal: dependable help and simple explanations so you know exactly what was done and why.</p>
+      </div>
+      <div class="avatar" role="img" aria-label="Tristan portrait placeholder"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div>
+        <h2>Contact</h2>
+        <p class="lead">Fast response during business hours.</p>
+        <div class="grid grid-2">
+          <a class="btn" href="tel:+14053239095" aria-label="Call Tristan">Call (405) 323‑9095</a>
+          <a class="btn" href="mailto:tristanlake15@gmail.com" aria-label="Email Tristan">Email</a>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <h3 style="margin:0 0 6px">Service area</h3>
+          <p class="fine">Edmond, OK • OKC metro</p>
+          <p class="fine"><a href="https://maps.google.com/?q=Edmond,OK" target="_blank" rel="noreferrer">Open in Maps</a></p>
+        </div>
+      </div>
+      <form class="card" aria-label="Quick message" onsubmit="event.preventDefault(); alert('Thanks, I\'ll respond shortly.');">
+        <h3>Quick message</h3>
+        <div class="field">
+          <label for="name">Name</label>
+          <input class="input" id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="msg">How can I help?</label>
+          <textarea class="input" id="msg" name="message" rows="4" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send</button>
+        <p class="fine" style="margin-top:8px">Submitting will open a quick confirmation in your browser. Replace with your form handler later.</p>
+      </form>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 DataLake TechSupport. Website by Tristan Lake.</p>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <p>&copy; <span id="year"></span> DataLake TechSupport. Edmond, OK.</p>
+      <p>Site by Tristan Lake.</p>
+    </div>
   </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
