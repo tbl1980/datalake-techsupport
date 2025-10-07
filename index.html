@@ -17,28 +17,28 @@
 
   <style>
     :root{
-      --bg: #0b1020;          /* slate-950 */
-      --surface:#0f172a;      /* slate-900 */
-      --card:#111827;         /* slate-900/950 mix */
-      --text:#e5e7eb;         /* slate-200 */
-      --muted:#9ca3af;        /* slate-400 */
-      --brand:#38bdf8;        /* sky-400 */
-      --brand-2:#22d3ee;      /* cyan-400 */
-      --accent:#a78bfa;       /* violet-400 */
-      --ok:#34d399;           /* emerald-400 */
+      --bg: #0b1020;
+      --surface:#0f172a;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --brand:#38bdf8;
+      --brand-2:#22d3ee;
+      --accent:#a78bfa;
+      --ok:#34d399;
       --ring: 0 0 0 8px rgb(56 189 248 / 0.20);
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg:#f8fafc;         /* slate-50 */
-        --surface:#ffffff;     /* white */
-        --card:#f1f5f9;        /* slate-100 */
-        --text:#0f172a;        /* slate-900 */
-        --muted:#475569;       /* slate-600 */
-        --brand:#0284c7;       /* sky-700 */
-        --brand-2:#0891b2;     /* cyan-700 */
-        --accent:#6d28d9;      /* violet-700 */
-        --ok:#059669;          /* emerald-600 */
+        --bg:#f8fafc;
+        --surface:#ffffff;
+        --card:#f1f5f9;
+        --text:#0f172a;
+        --muted:#475569;
+        --brand:#0284c7;
+        --brand-2:#0891b2;
+        --accent:#6d28d9;
+        --ok:#059669;
       }
     }
 
@@ -81,10 +81,19 @@
     @media (max-width: 900px){.hero .wrap{grid-template-columns:1fr; padding:64px 0 40px}}
     h1{font-size:clamp(2rem, 3.5vw, 3.25rem); line-height:1.05; margin:0 0 14px}
     .sub{color:var(--muted); font-size:1.1rem; margin-bottom:22px}
-    .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
-    .ghost{border:1px solid color-mix(in oklab, var(--text) 18%, transparent); background:transparent; color:var(--text)}
 
-    .statbar{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:28px}
+    /* centered larger call button */
+    .call-big{
+      display:block;
+      margin:20px auto 8px;    /* center above statbar */
+      padding:14px 28px;       /* bigger tap target */
+      font-size:1.15rem;       /* larger text */
+      text-align:center;
+      max-width:280px;         /* a tad wider */
+      border-radius:14px;
+    }
+
+    .statbar{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:20px}
     .stat{background:color-mix(in oklab, var(--text) 6%, transparent); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius:14px; padding:14px}
     .stat strong{display:block; font-size:1.3rem}
     .stat span{color:var(--muted); font-size:.9rem}
@@ -188,20 +197,21 @@
       <div>
         <h1>Reliable IT Support for homes and small businesses</h1>
         <p class="sub">Repairs, networking, consulting, and tutoring. Fast responses. Clear explanations. Serving Edmond and OKC metro.</p>
-        <div class="hero-cta">
-          <a class="btn" href="tel:+14053239095" aria-label="Call Tristan">Call now</a>
-        </div>
+
+        <!-- moved and enlarged call button -->
+        <a class="btn call-big" href="tel:+14053239095" aria-label="Call Tristan">Call now</a>
+
         <div class="statbar" role="list" aria-label="Quick facts">
           <div class="stat" role="listitem"><strong>5+ yrs</strong><span>Hands-on IT</span></div>
           <div class="stat" role="listitem"><strong>Ubiquiti</strong><span>Networks & VLANs</span></div>
-          <div class="stat" role="listitem"><strong>Same‑day</strong><span>Remote support</span></div>
+          <div class="stat" role="listitem"><strong>Same-day</strong><span>Remote support</span></div>
         </div>
       </div>
 
       <aside class="hero-card" aria-label="Highlights">
         <div class="card-row">
-          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg><div><strong>Plain‑English help</strong><div class="fine">No jargon. You keep the notes.</div></div></div>
-          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h3v-6H6v-2a6 6 0 0 1 12 0v2h-3v6h3a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9Z"/></svg><div><strong>On‑site or remote</strong><div class="fine">Flexible scheduling</div></div></div>
+          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg><div><strong>Plain-English help</strong><div class="fine">No jargon. You keep the notes.</div></div></div>
+          <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h3v-6H6v-2a6 6 0 0 1 12 0v2h-3v6h3a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9Z"/></svg><div><strong>On-site or remote</strong><div class="fine">Flexible scheduling</div></div></div>
           <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg><div><strong>Documented fixes</strong><div class="fine">You get a step list</div></div></div>
           <div class="chip"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5Zm0 11.99h7c-.48 4.09-3.19 7.88-7 9.13V13H5V6.3l7-3.11Z"/></svg><div><strong>Safe & secure</strong><div class="fine">Backups and hardening</div></div></div>
         </div>
@@ -217,7 +227,7 @@
       <div class="grid grid-3">
         <div class="card">
           <h3>Network Setup</h3>
-          <p>Routers, switches, VLANs, Wi‑Fi heat‑mapping, cabling.</p>
+          <p>Routers, switches, VLANs, Wi-Fi heat-mapping, cabling.</p>
           <ul class="list">
             <li><span class="dot"></span>Ubiquiti UniFi design and install</li>
             <li><span class="dot"></span>Firewall rules and VPN</li>
@@ -228,9 +238,9 @@
           <h3>Repairs</h3>
           <p>Laptops, desktops, VoIP phones, printers, and drones.</p>
           <ul class="list">
-            <li><span class="dot"></span>Windows tune‑ups and malware cleanup</li>
+            <li><span class="dot"></span>Windows tune-ups and malware cleanup</li>
             <li><span class="dot"></span>Printer jams and drivers</li>
-            <li><span class="dot"></span>Data recovery best‑effort</li>
+            <li><span class="dot"></span>Data recovery best-effort</li>
           </ul>
         </div>
         <div class="card">
@@ -254,9 +264,9 @@
       <div class="pricing">
         <div class="card price-card">
           <div class="badge" aria-label="Most popular">Popular</div>
-          <h3>On‑Site Visit</h3>
+          <h3>On-Site Visit</h3>
           <div class="price">$50/hr</div>
-          <p class="fine">1‑hour minimum • Edmond/OKC metro</p>
+          <p class="fine">1-hour minimum • Edmond/OKC metro</p>
           <ul class="list">
             <li><span class="dot"></span>Diagnostics and fixes</li>
             <li><span class="dot"></span>Small network jobs</li>
@@ -266,7 +276,7 @@
         <div class="card price-card">
           <h3>Remote Session</h3>
           <div class="price">$25/hr</div>
-          <p class="fine">15‑min billing after first 30 minutes</p>
+          <p class="fine">15-min billing after first 30 minutes</p>
           <ul class="list">
             <li><span class="dot"></span>Quick repairs and updates</li>
             <li><span class="dot"></span>New PC setup</li>
@@ -294,7 +304,7 @@
         <h2>About Me</h2>
         <p class="lead">Five years in the field. Clear communication. Practical fixes.</p>
         <p>Hi, I’m <strong>Tristan Lake</strong>. I help people feel confident with technology—
-          from a stubborn printer to a full small‑office network. I work with
+          from a stubborn printer to a full small-office network. I work with
           UniFi, Windows, and common business tools. I’m always learning—currently
           deepening drone repair and advanced networking.</p>
         <p>Goal: dependable help and simple explanations so you know exactly what was done and why.</p>
@@ -310,7 +320,7 @@
         <h2>Contact</h2>
         <p class="lead">Fast response during business hours.</p>
         <div class="grid grid-2">
-          <a class="btn" href="tel:+14053239095" aria-label="Call Tristan">Call (405) 323‑9095</a>
+          <a class="btn" href="tel:+14053239095" aria-label="Call Tristan">Call (405) 323-9095</a>
           <a class="btn" href="mailto:tristanlake15@gmail.com" aria-label="Email Tristan">Email</a>
         </div>
         <div class="card" style="margin-top:12px">
@@ -319,69 +329,63 @@
           <p class="fine"><a href="https://maps.google.com/?q=Edmond,OK" target="_blank" rel="noreferrer">Open in Maps</a></p>
         </div>
       </div>
-    <!-- FormSubmit-powered form -->
-    <form class="card" aria-label="Quick message"
-          action="https://formsubmit.co/tristanlake15@gmail.com"
-          method="POST">
-      <h3>Quick message</h3>
+      <!-- FormSubmit-powered form -->
+      <form class="card" aria-label="Quick message"
+            action="https://formsubmit.co/tristanlake15@gmail.com"
+            method="POST">
+        <h3>Quick message</h3>
 
-      <!-- required visible fields -->
-      <div class="field">
-        <label for="name">Name</label>
-        <input class="input" id="name" name="name" autocomplete="name" required />
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input class="input" id="email" name="email" type="email" autocomplete="email" required />
-      </div>
-      <div class="field">
-        <label for="msg">How can I help?</label>
-        <textarea class="input" id="msg" name="message" rows="4" required></textarea>
-      </div>
+        <div class="field">
+          <label for="name">Name</label>
+          <input class="input" id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="msg">How can I help?</label>
+          <textarea class="input" id="msg" name="message" rows="4" required></textarea>
+        </div>
 
-      <!-- optional fields -->
-      <div class="field">
-        <label for="phone">Phone (optional)</label>
-        <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" />
-      </div>
+        <div class="field">
+          <label for="phone">Phone (optional)</label>
+          <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
 
-      <!-- FormSubmit controls -->
-      <input type="hidden" name="_subject" value="New request from DataLake TechSupport" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="true" />
-      <input type="hidden" id="next-url" name="_next" value="" />
-      <!-- spam honeypot -->
-      <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_subject" value="New request from DataLake TechSupport" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="true" />
+        <input type="hidden" id="next-url" name="_next" value="" />
+        <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" />
 
-      <button class="btn" type="submit">Send</button>
-      <p class="fine" style="margin-top:8px">Submits securely to FormSubmit and emails <strong>tristanlake15@gmail.com</strong>.</p>
-    </form>
-  </div>
-</section>
-
-<script>
-  // Set current year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Redirect back to this page after submit with a flag
-  const here = new URL(window.location.href);
-  here.searchParams.set('sent','1');
-  const next = document.getElementById('next-url');
-  if (next) next.value = here.toString();
-
-  // Lightweight success notice
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('sent') === '1') {
-    const note = document.createElement('div');
-    note.textContent = 'Thanks. Your message was sent.';
-    note.setAttribute('role','status');
-    note.style.cssText = 'position:fixed;inset:auto 16px 16px;z-index:60;background:#10b98120;border:1px solid #10b98155;color:#e5e7eb;padding:12px 14px;border-radius:12px;backdrop-filter:saturate(1.4) blur(6px)';
-    document.body.appendChild(note);
-    setTimeout(()=>note.remove(), 5000);
-  }
-</script>
+        <button class="btn" type="submit">Send</button>
+        <p class="fine" style="margin-top:8px">Submits securely to FormSubmit and emails <strong>tristanlake15@gmail.com</strong>.</p>
+      </form>
     </div>
   </section>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Redirect back to this page after submit with a flag
+    const here = new URL(window.location.href);
+    here.searchParams.set('sent','1');
+    const next = document.getElementById('next-url');
+    if (next) next.value = here.toString();
+
+    // Lightweight success notice
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('sent') === '1') {
+      const note = document.createElement('div');
+      note.textContent = 'Thanks. Your message was sent.';
+      note.setAttribute('role','status');
+      note.style.cssText = 'position:fixed;inset:auto 16px 16px;z-index:60;background:#10b98120;border:1px solid #10b98155;color:#e5e7eb;padding:12px 14px;border-radius:12px;backdrop-filter:saturate(1.4) blur(6px)';
+      document.body.appendChild(note);
+      setTimeout(()=>note.remove(), 5000);
+    }
+  </script>
 
   <footer>
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
@@ -396,7 +400,3 @@
   </script>
 </body>
 </html>
-
-
-
-
